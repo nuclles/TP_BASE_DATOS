@@ -1,0 +1,49 @@
+# 🔹 Configuración inicial
+git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@example.com"
+
+# 📁 Iniciar un repositorio
+git init
+
+# 🔄 Clonar un repositorio
+git clone URL_DEL_REPO
+
+# 📌 Ver el estado del repositorio
+git status
+
+# 📂 Agregar archivos al área de preparación
+git add archivo.txt  # Agrega un archivo específico
+git add .            # Agrega todos los archivos modificados
+
+# ✅ Guardar cambios (commit)
+git commit -m "Mensaje del commit"
+
+# 🚀 Enviar cambios al repositorio remoto
+git push origin rama
+
+# ⬇️ Descargar cambios del repositorio remoto
+git pull origin rama
+
+# 🔄 Ver historial de commits
+git log --oneline --graph --all
+
+# 🔀 Crear y cambiar de rama
+git branch nueva_rama   # Crea una nueva rama
+git checkout nueva_rama # Cambia a la nueva rama (si ya existe)
+git checkout -b nueva_rama # Crea y cambia a una nueva rama en un solo paso
+git switch nueva_rama   # Alternativa moderna para cambiar de rama
+
+# 🔗 Fusionar ramas (merge)
+git checkout rama_principal
+git merge nueva_rama
+
+# ❌ Deshacer cambios
+git reset --hard HEAD    # Elimina cambios no confirmados
+git checkout -- archivo  # Revierte un archivo al último commit
+
+# 🚨 Ignorar archivos en Git
+echo "*.log\n/node_modules/" > .gitignore  # Crea un archivo .gitignore con reglas básicas
+
+# 📌 Conectar el repositorio local con GitHub
+git remote add origin URL_DEL_REPO
+git push -u origin main  # Subir el código por primera vez
