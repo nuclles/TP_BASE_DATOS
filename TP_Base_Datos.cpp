@@ -7,6 +7,7 @@
 
 
 using namespace std;
+class Tabla_Datos;
 struct Datos{
 	int clave;
 	Tabla_Datos* dir;
@@ -116,7 +117,7 @@ void Insertar(int _clave, string _valor){
 	aux.clave=_clave;
 	aux.valor=_valor;
 	aux.dir=NULL;
-	
+
 	while(contador < TD.size()){
 
 		TD.push_back(Tabla_Datos(aux));
@@ -124,7 +125,7 @@ void Insertar(int _clave, string _valor){
 	if((contador %4 ==0) && (contador<20)){
 
 		aux.dir=&TD[contador];
-
+		
 
 		TI.push_back(Tabla_Indice(aux));
 
