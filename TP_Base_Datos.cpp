@@ -206,7 +206,7 @@ void prueba_consulta(Gestor &pepe) {
 	cout << pepe.Consultar(n) << endl;
 }
 
-
+void santiPocho(){}
 
 void Menu() {
     cout << "\n###### MENU ######" << endl;
