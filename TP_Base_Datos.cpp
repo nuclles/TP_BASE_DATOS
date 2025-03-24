@@ -139,8 +139,6 @@ void prueba_consulta(Gestor &pepe) {
 }
 
 
-#include <iostream>
-using namespace std;
 
 void Menu() {
     cout << "\n###### MENU ######" << endl;
