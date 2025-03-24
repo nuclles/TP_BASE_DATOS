@@ -9,7 +9,7 @@
 using namespace std;
 struct Datos{
 	int clave;
-	int *dir;
+	Tabla_Datos* dir;
 	string valor;
 };
 
@@ -18,10 +18,10 @@ class Tabla_Datos{
 private:
 	int clave;
 	string valor;
-	int *dir;
+	Tabla_Datos *dir;
 	
 public:
-	Tabla_Datos(Datos _datos){
+	 Tabla_Datos ( Datos _datos){
 		this->clave=_datos.clave;
 		this->valor=_datos.valor;
 		this->dir=_datos.dir;
@@ -32,7 +32,7 @@ public:
 	string get_valor(){
 		return valor;
 	}
-	int* get_dir(){
+	Tabla_Datos* get_dir(){
 		return dir;
 	}
     /*Usa int* get_dir() si quieres devolver la dirección de memoria.
@@ -51,7 +51,12 @@ public:
 		this->dir=a.dir;
 	}*/
 };
+
 class Tabla_Indice{
+private:
+	int TI_clave;
+	Tabla_Datos *TI_dir;
+
 public:
 	Tabla_Indice(Datos _datos){
 		this->TI_clave=_datos.clave;
@@ -60,17 +65,14 @@ public:
 	int get_TI_clave(){
 		return TI_clave;
 	}
-	int get_TI_dir(){
-		return &TI_dir;
+	Tabla_Datos* get_TI_dir(){
+		return TI_dir;
 	}
 	/*void set_TI(Datos b){
 		this->TI_clave=b.clave;
 		this->TI_dir=b.dir;
 	}*/
-private:
-	int TI_clave;
-	int *TI_dir;
-	
+
 };
 
 class Gestor{
@@ -114,16 +116,29 @@ void Insertar(int _clave, string _valor){
 	aux.clave=_clave;
 	aux.valor=_valor;
 	aux.dir=NULL;
-	TD.push_back(Tabla_Datos(aux));
-	contador++;
 	
+	while(contador < TD.size()){
+
+		TD.push_back(Tabla_Datos(aux));
 	
 	if((contador %4 ==0) && (contador<20)){
-		TI.push_back( Tabla_Indice(aux));
+
+		aux.dir=&TD[contador];
+
+
+		TI.push_back(Tabla_Indice(aux));
+
+		contador++;
+
+	}else if ((contador >= 20) && (contador<TD.size())){
+		cout<<endl<<"Se guardo en el overflow"<<endl;
 		
+		contador++;
+		}
 	}
 	
-}
+	}
+
 };
 
 

@@ -27,6 +27,11 @@ git pull origin rama
 # 🔄 Ver historial de commits
 git log --oneline --graph --all
 
+# Eliminar un archivo
+git rm RUTA_DEL_ARCHIVO
+git commit -m "Eliminando archivo binario"
+git push origin main  # O la rama que estés usando
+
 # 🔀 Crear y cambiar de rama
 git branch nueva_rama   # Crea una nueva rama
 git checkout nueva_rama # Cambia a la nueva rama (si ya existe)
